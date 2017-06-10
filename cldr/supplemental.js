@@ -28,6 +28,15 @@ supplemental.getFirstDayOfWeek = function(/*String?*/locale){
 		ni:0,np:0,nz:0,pa:0,pe:0,ph:0,pk:0,pr:0,py:0,sg:0,sv:0,th:0,
 		tn:0,tt:0,tw:0,um:0,us:0,ve:0,vi:0,ws:0,za:0,zw:0
 	};
+>> tmpl = URITemplate.new('/notifications{?since,all,participating}')
+>> tmpl.expand
+=> "/notifications"
+
+>> tmpl.expand :all => 1
+=> "/notifications?all=1"
+
+>> tmpl.expand :all => 1, :participating => 1
+=> "/notifications?all=1&participating=1"
 
 	var country = supplemental._region(locale);
 	var dow = firstDay[country];
